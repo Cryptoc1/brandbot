@@ -14,7 +14,6 @@ def retweeted(api, s, my_id):
         for rt in rts:
             if rt.user.id == my_id:
                 ret = True
-                break
             else:
                 ret = False
     else:
