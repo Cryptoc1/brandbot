@@ -5,8 +5,8 @@
 import tweepy
 import time
 
-_skip = "Skipping tweet by @"
-_rt = "Retweeted tweet by @"
+_skip = " [#brandbot] Skipping tweet by @"
+_rt = " [#brandbot] Retweeted tweet by @"
 
 def retweeted(api, s, my_id):
     rts = api.retweets(s.id)
@@ -54,6 +54,7 @@ def main():
 
             # follow the user just because fuck that user
             api.create_friendship(s.user.id)
+            print " [#brandbot] followed user: @" + s.user.screen_name
 
         time.sleep(300)
 
