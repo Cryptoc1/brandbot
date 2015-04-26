@@ -37,10 +37,10 @@ def main():
     api = tweepy.API(auth)
     
     my_id = api.me().id
-    page = 0
+    page = "1"
     
     while True:
-        search = api.search("\"#brand\"", rpp=100, page=page)
+        search = api.search("\"#brand\"", rpp=100)
         for s in search:
             if retweeted(api, s, my_id) or tweet_by_me(api, s, my_id):
                 print _skip + s.user.screen_name
