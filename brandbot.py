@@ -14,6 +14,7 @@ def retweeted(api, s, my_id):
         for rt in rts:
             if rt.user.id == my_id:
                 ret = True
+                break
             else:
                 ret = False
     else:
@@ -37,7 +38,6 @@ def main():
     api = tweepy.API(auth)
     
     my_id = api.me().id
-    page = "1"
     
     while True:
         search = api.search("\"#brand\"", rpp=100)
@@ -52,10 +52,6 @@ def main():
             print " [#brandbot] followed user: @" + s.user.screen_name
 
         time.sleep(300)
-        if page < 5:
-            page += 1
-        else:
-            page = 0
 
 if __name__ == "__main__":
     main()
